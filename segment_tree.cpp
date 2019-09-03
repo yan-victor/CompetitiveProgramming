@@ -6,9 +6,6 @@ using namespace std;
 const int N = 100010;
 const int INF = 0x3f3f3f3f;
 
-#define pii pair<int,int>
-#define F first
-#define S second
 #define fe (2*x+1)
 #define fd (2*x+2)
 #define mid ((l+r)>>1)
@@ -39,7 +36,7 @@ void updmin(int x,int l,int r,int p,int val) {
 	tree[x]=min(tree[fe],tree[fd]);
 }
 
-pii querymin(int x,int l,int r,int ql,int qr) {
+int querymin(int x,int l,int r,int ql,int qr) {
 	if(ql>r||qr<l) return INF;
 	if(ql<=l&&r<=qr) return tree[x];
 	return min(querymin(fe,l,mid,ql,qr),querymin(fd,mid+1,r,ql,qr));
